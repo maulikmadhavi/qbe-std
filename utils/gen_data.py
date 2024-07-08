@@ -29,4 +29,22 @@ def get_10hz_sine_wave(perturbation=0):
 # plt.show()
 
 
+def generated_simulated_data():
+    x1 = np.array([np.random.randn(1000),np.random.randn(1000),np.random.randn(1000)+4,np.random.randn(1000)+4.8])
+    x2 = np.array([np.random.randn(1000),np.random.randn(1000)+4,np.random.randn(1000),np.random.randn(1000)+4.8])
+    x = np.concatenate((x1,x2),axis=0)    
+    return x.reshape(2, -1)
+
+
+if __name__ == "__main__":    
+    import matplotlib.pyplot as plt
+    x = generated_simulated_data()
+    # plt.plot(x[0,:], label='x1')
+    # plt.plot(x[1,:], label='x2')
+    plt.plot(x[0], x[1],'r*')
+    plt.xlabel('x1')
+    plt.ylabel('x2')
+    plt.grid()
+    plt.show()
+    
 
